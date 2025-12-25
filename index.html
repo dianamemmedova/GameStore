@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lugx Gaming Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <svg width="158" height="50" viewBox="0 0 158 50" fill="#fff">
+                        <text x="10" y="35" font-family="Poppins" font-size="28" font-weight="bold">LUGX</text>
+                    </svg>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#shop">Our Shop</a></li>
+                    <li><a href="#details">Product Details</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li class="cart-icon" onclick="toggleCart()">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </li>
+                    <li><a href="#signin">Sign In</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>My Cart</h3>
+            <button class="close-cart" onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="cart-empty">
+                <i class="fa fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Cart Notification -->
+    <div class="cart-notification" id="cartNotification">
+        Product added to cart!
+    </div>
+
+    <!-- Main Banner -->
+    <section class="main-banner" id="home">
+        <div class="container" style="max-width: 1250px;">
+            <div class="banner-content">
+                <div class="caption">
+                    <h6>Welcome to lugx</h6>
+                    <h2>BEST GAMING SITE EVER!</h2>
+                    <p>LUGX Gaming is free Bootstrap 5 HTML CSS website template for your gaming websites. You can
+                        download and use this layout for commercial purposes.</p>
+                    <div class="search-form">
+                        <input type="text" placeholder="Type Something">
+                        <button>Search Now</button>
+                    </div>
+                </div>
+                <div class="banner-image">
+                    <div
+                        style="width: 100%; height: 500px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 80px;">
+                        <img src="banner-image.jpg" alt=""></div>
+                    <span class="price-tag">$22</span>
+                    <span class="offer-tag">-40%</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon"><img src="featured-01.png" alt=""></div>
+                    <h4>Free Storage</h4>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><img src="featured-02.png" alt=""></div>
+                    <h4>User More</h4>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><img src="featured-03.png" alt=""></div>
+                    <h4>Reply Ready</h4>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon"><img src="featured-04.png" alt=""></div>
+                    <h4>Easy Layout</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-heading">
+                    <h6>Trending</h6>
+                    <h2>Trending Games</h2>
+                </div>
+                <div class="main-button">
+                    <a href="#shop">View All</a>
+                </div>
+            </div>
+            <div class="trending-grid">
+                <div class="game-item">
+                    <div class="game-thumb">
+                        <div
+                            style="width: 100%; height: 200px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                            <img src="trending-01.jpg" alt=""></div>
+                        <span class="game-price"><em>$28</em>$20</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-category">Action</span>
+                        <h4>Assassin's Creed</h4>
+                        <button class="add-to-cart-btn"
+                            onclick='addToCart("Assassins Creed", 20, "Action", "gradient1", "trending-01.jpg")'>
+                            <i class="fa fa-shopping-bag"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumb">
+                        <div
+                            style="width: 100%; height: 200px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                            <img src="trending-02.jpg" alt=""></div>
+                        <span class="game-price">$44</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-category">Action</span>
+                        <h4>Call of Duty</h4>
+                        <button class="add-to-cart-btn"
+                            onclick='addToCart("Call of Duty", 44, "Action", "gradient2", "trending-02.jpg")'>
+                            <i class="fa fa-shopping-bag"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumb">
+                        <div
+                            style="width: 100%; height: 200px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                            <img src="trending-03.jpg" alt=""></div>
+                        <span class="game-price"><em>$64</em>$44</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-category">Action</span>
+                        <h4>God of War</h4>
+                        <button class="add-to-cart-btn"
+                            onclick='addToCart("God of War", 44, "Action", "gradient3", "trending-03.jpg")'>
+                            <i class="fa fa-shopping-bag"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="game-item">
+                    <div class="game-thumb">
+                        <div
+                            style="width: 100%; height: 200px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                            <img src="trending-04.jpg" alt=""></div>
+                        <span class="game-price">$32</span>
+                    </div>
+                    <div class="game-content">
+                        <span class="game-category">Action</span>
+                        <h4>Fortnite</h4>
+                        <button class="add-to-cart-btn"
+                            onclick='addToCart("Fortnite", 32, "Action", "gradient4", "trending-04.jpg")'>
+                            <i class="fa fa-shopping-bag"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Most Played -->
+    <section class="most-played">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-heading">
+                    <h6>TOP GAMES</h6>
+                    <h2>Most Played</h2>
+                </div>
+                <div class="main-button">
+                    <a href="#shop">View All</a>
+                </div>
+            </div>
+            <div class="most-played-grid">
+                <div class="most-played-item">
+                    <div
+                        style="width: 100%; height: 160px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 25px 25px 0 0; display: flex; align-items: center; justify-content: center; font-size: 50px;">
+                        <img src="top-game-01.jpg" alt=""></div>
+                    <div class="most-played-content">
+                        <span>Adventure</span>
+                        <h4>The Witcher 3</h4>
+                        <button
+                            onclick='addToCart("The Witcher 3", 35, "Adventure", "gradient1", "top-game-01.jpg")'>Add to
+                            Cart</button>
+                    </div>
+                </div>
+                <div class="most-played-item">
+                    <div
+                        style="width: 100%; height: 160px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 25px 25px 0 0; display: flex; align-items: center; justify-content: center; font-size: 50px;">
+                        <img src="top-game-02.jpg" alt=""></div>
+                    <div class="most-played-content">
+                        <span>Adventure</span>
+                        <h4>Red Dead 2</h4>
+                        <button onclick='addToCart("Red Dead 2", 50, "Adventure", "gradient2", "top-game-02.jpg")'>Add
+                            to Cart</button>
+                    </div>
+                </div>
+                <div class="most-played-item">
+                    <div
+                        style="width: 100%; height: 160px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 25px 25px 0 0; display: flex; align-items: center; justify-content: center; font-size: 50px;">
+                        <img src="top-game-03.jpg" alt=""></div>
+                    <div class="most-played-content">
+                        <span>Adventure</span>
+                        <h4>Cyberpunk 2077</h4>
+                        <button
+                            onclick='addToCart("Cyberpunk 2077", 45, "Adventure", "gradient3", "top-game-03.jpg")'>Add
+                            to Cart</button>
+                    </div>
+                </div>
+                <div class="most-played-item">
+                    <div
+                        style="width: 100%; height: 160px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 25px 25px 0 0; display: flex; align-items: center; justify-content: center; font-size: 50px;">
+                        <img src="top-game-04.jpg" alt=""></div>
+                    <div class="most-played-content">
+                        <span>Adventure</span>
+                        <h4>Elden Ring</h4>
+                        <button onclick='addToCart("Elden Ring", 60, "Adventure", "gradient4", "top-game-04.jpg")'>Add
+                            to Cart</button>
+                    </div>
+                </div>
+                <div class="most-played-item">
+                    <div
+                        style="width: 100%; height: 160px; background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); border-radius: 25px 25px 0 0; display: flex; align-items: center; justify-content: center; font-size: 50px;">
+                        <img src="top-game-05.jpg" alt=""></div>
+                    <div class="most-played-content">
+                        <span>Adventure</span>
+                        <h4>Horizon Zero</h4>
+                        <button onclick='addToCart("Horizon Zero", 40, "Adventure", "gradient5", "top-game-05.jpg")'>Add
+                            to Cart</button>
+                    </div>
+                </div>
+                <div class="most-played-item">
+                    <div
+                        style="width: 100%; height: 160px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 25px 25px 0 0; display: flex; align-items: center; justify-content: center; font-size: 50px;">
+                        <img src="top-game-06.jpg" alt=""></div>
+                    <div class="most-played-content">
+                        <span>Adventure</span>
+                        <h4>Spider-Man</h4>
+                        <button onclick='addToCart("Spider-Man", 55, "Adventure", "gradient6", "top-game-06.jpg")'>Add
+                            to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="section">
+        <div class="container">
+            <div class="section-heading" style="text-align: center; margin-bottom: 70px;">
+                <h6>Categories</h6>
+                <h2>Top Categories</h2>
+            </div>
+            <div class="categories-grid">
+                <div class="category-item">
+                    <h4>Action</h4>
+                    <div
+                        style="width: 100%; height: 200px; background: #0071f8; display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                        <img src="categories-01.jpg" alt="" style="height: 100%;"></div>
+                </div>
+                <div class="category-item">
+                    <h4>Strategy</h4>
+                    <div
+                        style="width: 100%; height: 200px; background:#0071f8; display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                        <img src="categories-05.jpg" alt="" style="height: 100%;"></div>
+                </div>
+                <div class="category-item">
+                    <h4>Racing</h4>
+                    <div
+                        style="width: 100%; height: 200px; background: #0071f8; display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                        <img src="categories-03.jpg" alt="" style="height: 100%;"></div>
+                </div>
+                <div class="category-item">
+                    <h4>Adventure</h4>
+                    <div
+                        style="width: 100%; height: 200px; background:#0071f8; display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                        <img src="categories-04.jpg" alt="" style="height: 100%;"></div>
+                </div>
+                <div class="category-item">
+                    <h4>Puzzle</h4>
+                    <div
+                        style="width: 100%; height: 200px; background: #0071f8; display: flex; align-items: center; justify-content: center; font-size: 60px;">
+                        <img src="categories-05.jpg" alt="" style="height: 100%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Copyright © 2145 LUGX Gaming Company. All rights reserved. &nbsp;&nbsp; Design: TemplateMo</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+
+   
+</body>
+
+</html>
